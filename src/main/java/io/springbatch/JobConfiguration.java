@@ -11,7 +11,7 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+/*@Configuration
 @RequiredArgsConstructor
 public class JobConfiguration {
 
@@ -23,8 +23,12 @@ public class JobConfiguration {
         return jobBuilderFactory.get("job")
             .start(step1())
             .next(step2())
+            .next(step3())
+            .next(step4())
             .build();
     }
+    
+   
     
     @Bean
     public Step step1() {
@@ -55,4 +59,18 @@ public class JobConfiguration {
             })
             .build();
     }
-}
+    
+    @Bean
+    public Step step3() {
+        return stepBuilderFactory.get("step3")
+            .tasklet(new CustomTasklet())
+            .build();
+    }
+    
+    @Bean
+    public Step step4() {
+        return stepBuilderFactory.get("step4")
+            .tasklet(null)
+            .build();
+    }
+}*/
